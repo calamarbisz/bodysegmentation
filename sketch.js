@@ -26,13 +26,17 @@ function gotResults(error, result) {
     console.log(error);
     return;
   }
-  segmentedImage = result.personMask;
+  segmentedImage = result.backgroundMask;
   bodypix.segment(gotResults);
-  console.log(result.backgroundMask);
+  //console.log(result.backgroundMask);
 }
 
 function draw(){
   //background(0,240,0);
-
   image(segmentedImage, 0,0 ,width,height);
 }
+
+function mousePressed(){
+  save('pix.jpg');
+}
+
